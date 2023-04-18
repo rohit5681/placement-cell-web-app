@@ -2,19 +2,19 @@
 const mongoose = require("mongoose");
 
 //Create the DB Schema
-const interviewSchema = new mongoose.Schema(
+const scoreSchema = new mongoose.Schema(
 	{
-		company: {
-			type: mongoose.Schema.Types.ObjectId,
-			ref: "Company",
+		score: {
+			type: Number,
+			required: true,
 		},
 		student: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Student",
 		},
-		result: {
+		course: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "Result",
+			ref: "Course",
 		},
 	},
 	{
@@ -23,7 +23,7 @@ const interviewSchema = new mongoose.Schema(
 );
 
 //Create a Model/Collection to populate the data with the same name for the schema in the DB
-const Interview = mongoose.model("Interview", interviewSchema);
+const Score = mongoose.model("Score", scoreSchema);
 
 //Export the Model
-module.exports = Interview;
+module.exports = Score;
